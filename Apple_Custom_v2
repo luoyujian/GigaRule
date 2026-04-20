@@ -1,4 +1,4 @@
-name: Apple Custom
+name: Apple Custom_v2
 desc: Add Apple rules to subscribed configs
 
 rule-providers:
@@ -9,11 +9,11 @@ rule-providers:
     interval: 86400
 
 proxy-groups:
-  - name: Apple_Custom
+  - name: Apple_Custom_Remote
     type: select
     proxies:
       - DIRECT
     include-all: true
 
 rules:
-  - RULE-SET,apple_all,Apple_Custom
+  - RULE-SET,apple_all,Apple_Custom_Remote
