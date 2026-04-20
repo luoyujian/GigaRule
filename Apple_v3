@@ -1,0 +1,19 @@
+name: Apple_v3
+desc: Add Apple rules to subscribed configs
+
+rule-providers:
+  apple_all:
+    behavior: classical
+    format: yaml
+    url: https://cdn.jsdmirror.com/gh/perfect-panel/rules/rule/Clash/Apple/Apple_Classical_No_Resolve.yaml
+    interval: 86400
+
+proxy-groups:
+  - name: Apple_v3
+    type: select
+    proxies:
+      - DIRECT
+      - 节点选择
+
+rules:
+  - RULE-SET,apple_all,Apple_v3
