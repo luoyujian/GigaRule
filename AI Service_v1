@@ -1,0 +1,33 @@
+name: AI Service_v1
+desc: Add AI service rules to subscribed configs
+
+rule-providers:
+  openai_all:
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
+    interval: 86400
+
+  gemini_all:
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
+    interval: 86400
+
+  anthropic_all:
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Anthropic/Anthropic.yaml
+    interval: 86400
+
+proxy-groups:
+  - name: AI_service
+    type: select
+    proxies:
+      - DIRECT
+    include-all: true
+
+rules:
+  - RULE-SET,openai_all,AI_service
+  - RULE-SET,gemini_all,AI_service
+  - RULE-SET,anthropic_all,AI_service
